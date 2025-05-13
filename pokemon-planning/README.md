@@ -82,8 +82,8 @@ flowchart TD
 
 ```mermaid
 graph TD
-    A[Frontend (React/HTML)] -->|HTTP Requests| B[Backend (Flask API)]
-    B --> C[Database (PostgreSQL/MySQL)]
+    A[Frontend - React/HTML] -->|HTTP Requests| B[Backend - Flask API]
+    B --> C[Database - PostgreSQL/MySQL]
 
     subgraph Users
         U1[Regular User]
@@ -94,10 +94,10 @@ graph TD
     U2 --> A
 
     A -->|GET /cards| B
-    A -->|POST /cards (submit)| B
+    A -->|POST /cards - submit| B
     A -->|POST /decks| B
     A -->|PUT/DELETE decks| B
-    U2 -->|POST /cards (add)| B
+    U2 -->|POST /cards - add| B
     U2 -->|PUT/DELETE cards| B
     U2 -->|GET /submissions| B
     B -->|SQL Queries| C
