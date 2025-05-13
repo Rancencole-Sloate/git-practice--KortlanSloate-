@@ -65,7 +65,7 @@ flowchart TD
     D -- User --> E[Submit New Card]
     E --> F[Pending Approval]
     D --> G[Create/Edit Deck]
-    G --> H[Manage Deck (Add/Remove Cards)]
+    G --> H[Manage Deck - Add/Remove Cards]
     D -- Admin --> I[Review Submissions]
     I --> J[Approve or Reject Cards]
     J --> K[Edit/Delete Existing Cards]
