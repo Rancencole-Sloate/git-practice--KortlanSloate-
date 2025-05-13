@@ -58,22 +58,21 @@ This document outlines the design and planning for the Pokémon Card Storage Web
 ## 2. User Flow Diagram
 
 ```mermaid
-flowchart TD
-    A[Start] --> B{Is User Logged In?}
+A[Start] --> B{Is User Logged In?}
     B -- No --> C[View Cards]
     B -- Yes --> D{User or Admin?}
     D -- User --> E[Submit New Card]
     E --> F[Pending Approval]
-    D --> G[Create/Edit Deck]
+    D -- User --> G[Create/Edit Deck]
     G --> H[Manage Deck (Add/Remove Cards)]
     D -- Admin --> I[Review Submissions]
     I --> J[Approve or Reject Cards]
     J --> K[Edit/Delete Existing Cards]
     C --> L[End]
+    F --> L
     H --> L
     K --> L
     
-
 ```
 
 ---
@@ -101,7 +100,7 @@ graph TD
     U2 -->|PUT/DELETE cards| B
     U2 -->|GET /submissions| B
     B -->|SQL Queries| C
-    
+
 ```
 ---
 ## 4. API Endpoints
