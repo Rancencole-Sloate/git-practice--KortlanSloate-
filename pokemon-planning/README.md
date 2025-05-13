@@ -8,49 +8,27 @@ This document outlines the design and planning for the Pokémon Card Storage Web
 ## 1. Entity-Relationship Diagram (ERD)
 
 ```mermaid
-erDiagram
-    USER ||--o{ DECK : owns
-    USER ||--o{ CARD_SUBMISSION : submits
-    ADMIN ||--o{ CARD : manages
-    DECK ||--o{ DECK_CARD : includes
-    CARD ||--o{ DECK_CARD : appears_in
+    erDiagram
+    User ||--o| Leaderboard : submits
+    User {
+       userId int PK
+       userName string
+    }
+    Leaderboard ||--o| User : tracks
+    Leaderboard {
+       addUser string PK
+       removeUser string
+       userRank int
+       userToprank int
 
-    USER {
-        int user_id
-        string username
-        string email
-        string role
-    }
+     }
+     Score ||--|{ User : achieves
+     Score {
+       score int PK
+       dateSubmitted int
 
-    CARD {
-        int card_id
-        string name
-        string type
-        string rarity
-        int attack
-        int defense
-        bool approved
-    }
+     }
 
-    DECK {
-        int deck_id
-        string name
-        int user_id
-    }
-
-    DECK_CARD {
-        int deck_id
-        int card_id
-    }
-
-    CARD_SUBMISSION {
-        int submission_id
-        int user_id
-        int card_id
-        date submitted_at
-        string status
-    }
-    }
 ```
 
 ---
