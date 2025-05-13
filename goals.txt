@@ -1,0 +1,9 @@
+Short-term Learning Goals:
+1. BGain a greater understanding of Git
+2. understand more of the process
+3. Contribute to an open-source project
+
+Long-term Career or Academic Goals:
+1. Become proficient in software development
+2. Finsh College
+3. Obtain a job and live a secure lifestyle
