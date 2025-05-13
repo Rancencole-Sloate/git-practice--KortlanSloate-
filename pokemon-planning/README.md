@@ -12,7 +12,6 @@ erDiagram
     USER ||--o{ DECK : owns
     USER ||--o{ CARD_SUBMISSION : submits
     ADMIN ||--o{ CARD : manages
-
     DECK ||--o{ DECK_CARD : includes
     CARD ||--o{ DECK_CARD : appears_in
 
@@ -30,7 +29,7 @@ erDiagram
         string rarity
         int attack
         int defense
-        boolean approved
+        bool approved
     }
 
     DECK {
@@ -51,10 +50,9 @@ erDiagram
         date submitted_at
         string status
     }
-    
-}
-
+    }
 ```
+
 ---
 
 ## 2. User Flow Diagram
