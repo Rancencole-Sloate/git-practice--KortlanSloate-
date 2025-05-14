@@ -19,11 +19,11 @@ def board_full(board):
 
 def play_game():
     board = [[" " for _ in range(3)] for _ in range(3)]
-    p = ["X", "O"]
+    players = ["X", "O"]
     print("Tic-Tac-Toe Game")
-    p(board)
+    print_board(board)
     for turn in range(9):
-        current_player = p[turn % 2]
+        current_player = players[turn % 2]
         while 1:
             try:
                 r, c = map(int, input(f"P {current_player}, row col (0-2): ").split())
@@ -32,9 +32,9 @@ def play_game():
                     break
                 else:
                     print("Nope. Again.")
-            except:
+            except ValueError:
                 print("Wrong. 0-2 pls.")
-        p(board)
+        print_board(board)
         if check_win(board, current_player):
             print(f"P {current_player} wins!")
             return
@@ -42,6 +42,3 @@ def play_game():
             print("Draw!")
             return
     print("Draw!")
-
-
-play_game()
