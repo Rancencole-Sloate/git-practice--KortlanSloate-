@@ -24,36 +24,34 @@ def play_game():
     print_board(board)
     for turn in range(9):
         current_player = players[turn % 2]
-        while 1:
-            try:
-                r, c = map(int, input(f"P {current_player}, row col (0-2): ").split())
-                if board[r][c] == " ":
-                    board[r][c] = current_player
-                    break
-                else:
-                    print("Nope. Again.")
-            except ValueError:
-                print("Wrong. 0-2 pls.")
+        r, c = get_player_move(current_player, board)
+        board[r][c] = current_player
         print_board(board)
         if check_win(board, current_player):
-            print(f"P {current_player} wins!")
+            print_winner(current_player)
             return
         if board_full(board):
-            print("Draw!")
+            print_winner(None)
             return
-    print("Draw!")
+    print_winner(None)
 
 
-def get_player_move():
-    print_winner()
+def get_player_move(current_player, board):
+    while True:
+        try:
+            r, c = map(int, input(f"P {current_player}, row col (0-2): ").split())
+            if 0 <= r <= 2 and 0 <= c <= 2:
+                if board[r][c] == " ":
+                    return r, c
+                else:
+                    print("That spot is taken. Try again.")
+            else:
+                print("Row and column must be between 0 and 2.")
+        except ValueError:
+            print("Invalid input. Enter two numbers between 0 and 2.")
 
-
-def print_winner(player):
-    handle_invalid_input()
-
-
-def handle_invalid_input():
-    play_game()
-
-
-get_player_move()
+def print_winner(winner):
+    if winner:
+        print(f"P {winner} wins!")
+    else:
+        print("Draw!")
