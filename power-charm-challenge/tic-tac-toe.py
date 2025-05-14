@@ -42,3 +42,18 @@ def play_game():
             print("Draw!")
             return
     print("Draw!")
+
+
+def get_player_move():
+    print_winner()
+
+
+def print_winner(player):
+    handle_invalid_input()
+
+
+def handle_invalid_input():
+    play_game()
+
+
+get_player_move()
